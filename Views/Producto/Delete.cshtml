@@ -1,0 +1,68 @@
+﻿@model catFinal.Models.Producto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar</h2>
+
+<h3>Estas seguro de borrar este PRODUCTO?</h3>
+<fieldset>
+    <legend>Producto</legend>
+
+    @*<div class="display-label">
+         @Html.DisplayNameFor(model => model.idProducto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idProducto)
+    </div>*@
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cantidad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cantidad)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.precio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.precio)
+    </div>
+
+    @*<div class="display-label">
+         @Html.DisplayNameFor(model => model.ImageMimeType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageMimeType)
+    </div>*@
+
+    <div class="display-label">
+        Categoria
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Categorias.nombre)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Borrar" /> |
+        @Html.ActionLink("[REGRESAR] Lista de Productos", "Index")
+    </p>
+}

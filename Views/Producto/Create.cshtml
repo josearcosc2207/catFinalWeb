@@ -1,0 +1,91 @@
+﻿@model catFinal.Models.Producto
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear Nuevo PRODUCTO</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script> 
+
+@using (Html.BeginForm("Create", "Producto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Producto</legend>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.idProducto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.idProducto)
+            @Html.ValidationMessageFor(model => model.idProducto)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nombre)
+            @Html.ValidationMessageFor(model => model.nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.descripcion)
+            @Html.ValidationMessageFor(model => model.descripcion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cantidad)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cantidad)
+            @Html.ValidationMessageFor(model => model.cantidad)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.precio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.precio)
+            @Html.ValidationMessageFor(model => model.precio)
+        </div>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.ImageMimeType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImageMimeType)
+            @Html.ValidationMessageFor(model => model.ImageMimeType)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.idCategoria, "Producto")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("idCategoria", String.Empty)
+            @Html.ValidationMessageFor(model => model.idCategoria)
+        </div>
+        <div class="editor-label">
+            Imagen
+        </div>
+        <div class="editor-field">
+            <input type="file" name="image" />
+        </div>
+        <p>
+            <input type="submit" value="Crear" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("[REGRESAR] Lista de PRODUCTOS", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

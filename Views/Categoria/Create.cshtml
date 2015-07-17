@@ -1,0 +1,44 @@
+﻿@model catFinal.Models.Categorias
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear nueva CATEGORIA</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Categorias</legend>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.idCategoria)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.idCategoria)
+            @Html.ValidationMessageFor(model => model.idCategoria)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nombre)
+            @Html.ValidationMessageFor(model => model.nombre)
+        </div>
+
+        <p>
+            <input type="submit" value="Crear" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("[REGRESAR] Lista de Categorias", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

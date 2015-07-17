@@ -1,0 +1,76 @@
+﻿@model IEnumerable<catFinal.Models.Producto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Productos</h2>
+
+<p>
+    @Html.ActionLink("NUEVO PRODUCTO", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categorias.nombre)
+        </th>
+        <th>
+            Imagen
+        </th>
+        <th>
+            CONTROL
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categorias.nombre)
+        </td>
+        <td>
+            @if (item.picture != null)
+            {
+                <div style="float:left;margin-right:20px">
+                    <img width="75" height="75" src="@Url.Action("GetImage", "Producto", new { item.idProducto })" />
+                </div>
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new {  id=item.idProducto  }) |
+            @Html.ActionLink("Detalles", "Details", new { id = item.idProducto }) |
+            @Html.ActionLink("Borrar", "Delete", new { id = item.idProducto })
+        </td>
+    </tr>
+}
+
+</table>

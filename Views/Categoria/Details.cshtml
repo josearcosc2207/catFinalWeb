@@ -1,0 +1,29 @@
+﻿@model catFinal.Models.Categorias
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle</h2>
+
+<fieldset>
+    <legend>Categorias</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idCategoria)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idCategoria)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("[REGRESAR] Lista de Categorias", "Index")
+</p>

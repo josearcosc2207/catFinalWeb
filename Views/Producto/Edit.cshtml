@@ -1,0 +1,84 @@
+﻿@model catFinal.Models.Producto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Producto</legend>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.idProducto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.idProducto)
+            @Html.ValidationMessageFor(model => model.idProducto)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nombre)
+            @Html.ValidationMessageFor(model => model.nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.descripcion)
+            @Html.ValidationMessageFor(model => model.descripcion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cantidad)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cantidad)
+            @Html.ValidationMessageFor(model => model.cantidad)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.precio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.precio)
+            @Html.ValidationMessageFor(model => model.precio)
+        </div>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.ImageMimeType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImageMimeType)
+            @Html.ValidationMessageFor(model => model.ImageMimeType)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.idCategoria, "Categorias")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("idCategoria", String.Empty)
+            @Html.ValidationMessageFor(model => model.idCategoria)
+        </div>
+
+        <p>
+            <input type="submit" value="Guardar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("[REGRESAR] Lista de Productos", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

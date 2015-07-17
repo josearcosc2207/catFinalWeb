@@ -1,0 +1,33 @@
+﻿@model catFinal.Models.Categorias
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar</h2>
+
+<h3>Estas seguro de borrar esta categoria?</h3>
+<fieldset>
+    <legend>Categorias</legend>
+
+    @*<div class="display-label">
+         @Html.DisplayNameFor(model => model.idCategoria)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idCategoria)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nombre)
+    </div>*@
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Borrar" /> |
+        @Html.ActionLink("[REGRESAR] Lista de Categorias", "Index")
+    </p>
+}
